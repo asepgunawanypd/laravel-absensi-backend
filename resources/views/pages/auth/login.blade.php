@@ -24,11 +24,18 @@
                     <label for="email">Email</label>
                     <input id="email"
                         type="email"
-                        class="form-control"
+                        class="form-control
+                        @error('email')
+                            is-invalid
+                        @enderror"
+                        value="{{ old('email')}}"
                         name="email"
-                        tabindex="1"
-                        required
-                        autofocus>
+                        tabindex="1">
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message}}
+                            </div>
+                        @enderror
                     <div class="invalid-feedback">
                         Please fill in your email
                     </div>
@@ -53,18 +60,6 @@
                         required>
                     <div class="invalid-feedback">
                         please fill in your password
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox"
-                            name="remember"
-                            class="custom-control-input"
-                            tabindex="3"
-                            id="remember-me">
-                        <label class="custom-control-label"
-                            for="remember-me">Remember Me</label>
                     </div>
                 </div>
 
