@@ -21,5 +21,20 @@ class DatabaseSeeder extends Seeder
             'email' => 'asepg@fic16.com',
             'password' => Hash::make('12345678'),
         ]);
+
+        \App\Models\Company::create([
+            'name' => 'CV. INTI SOLUSI DEVELOPER',
+            'email' => 'intisolusidevelopercv@gmail.com',
+            'address' => 'Kp. Angsana RT.003/001 Ds. Cibugel Kec. Cisoka Kab. Tangerang  Banten',
+            'latitude' => '-6.245175999706348',
+            'longitude' => '106.42587545263291',
+            'radius_km' => '0.5',
+            'time_in' => '08.00',
+            'time_out' => '16.30',
+        ]);
+
+        $this->call([
+            AttendanceSeeder::class,
+        ]);
     }
 }

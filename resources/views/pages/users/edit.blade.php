@@ -86,6 +86,32 @@
                                         <input type="number" class="form-control" name="phone" value="{{ $user->phone }}">
                                     </div>
                                     <div class="form-group">
+                                        <label>Position</label>
+                                        <input type="text"
+                                            class="form-control @error('position')
+                                        is-invalid
+                                    @enderror"
+                                            name="position" value="{{ $user->position }}">
+                                        @error('position')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <input type="text"
+                                            class="form-control @error('department')
+                                        is-invalid
+                                    @enderror"
+                                            name="department" value="{{ $user->department }}">
+                                        @error('department')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label class="form-label">Roles</label>
                                         <div class="selectgroup w-100">
                                             <label class="selectgroup-item">
@@ -96,7 +122,7 @@
                                             <label class="selectgroup-item">
                                                 <input type="radio" name="role" value="doctor" class="selectgroup-input"
                                                     @if ($user->role == 'doctor') checked @endif>
-                                                <span class="selectgroup-button">Doctor</span>
+                                                <span class="selectgroup-button">Staff</span>
                                             </label>
                                             <label class="selectgroup-item">
                                                 <input type="radio" name="role" value="user" class="selectgroup-input"

@@ -33,6 +33,7 @@ class UserController extends Controller
             'email' => 'required|email',
             'phone' => 'required',
             'password' => 'required',
+
         ]);
 
         $user = new User();
@@ -40,7 +41,10 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->role = $request->role;
+        $user->position = $request->position;
+        $user->department = $request->department;
         $user->password = Hash::make($request->password);
+
         $user->save();
 
         return redirect()->route('users.index')->with('success', 'User created successfully');
@@ -72,6 +76,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->role = $request->role;
+        $user->position = $request->position;
+        $user->department = $request->department;
         if ($request->password) {
             $user->password = Hash::make($request->password);
         }
