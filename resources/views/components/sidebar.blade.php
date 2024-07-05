@@ -26,6 +26,10 @@
                 <a href="{{ route('attendances.index') }}"
                     class="nav-link"><i class="fas fa-clock"></i><span>Attendances</span></a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('permission.index') }}"
+                    class="nav-link"><i class="fas fa-users"></i><span>Permission</span></a>
+            </li>
             
         </ul>
 
